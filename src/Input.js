@@ -30,7 +30,7 @@ class Input extends Component {
             placeholder="Aa"
             autoFocus={ true }
           />
-          <button>Send</button>
+          <button><i className="far fa-paper-plane"></i></button>
         </form>
       </div>
     );

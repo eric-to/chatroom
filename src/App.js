@@ -47,7 +47,9 @@ class App extends Component {
   }
 
   randomColor() {
-    return '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16);
+    const colors = ["#32064A", "#E56B1F", "#FCD02C", "#E42C6A", "#FDD935", "#3EB650", "#E12B38", "#F3E367", "#7DA2A9", "#4BFFA5", "#C19434", "#FB8122", "#D48166", "#5626C4", "#C60021", "#92A332", "#FB9985", "#63BCE5", "#C39EA0", "#F4ABAA", "#7D3780"];
+    // return '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16);
+    return colors[Math.floor(Math.random() * colors.length)];
   }
 
   onSendMessage(message) {
@@ -59,13 +61,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <Messages
-          messages={ this.state.messages }
-          currentUser={ this.state.user }
+          messages={this.state.messages}
+          currentUser={this.state.user}
         />
         <Input
-          onSendMessage={ this.onSendMessage }
+          onSendMessage={this.onSendMessage}
         />
       </div>
     );

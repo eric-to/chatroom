@@ -1,9 +1,12 @@
-.App {
-  background-color: #292930;
+.app {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+}
+
+.chat-container {
+  height: 100%;
 }
 
 .messages-list {
@@ -64,6 +67,10 @@
   background-color: #0084FF;
 }
 
+html, body {
+  background-color: #292930;
+}
+
 form {
   display: flex;
   justify-content: space-between;
@@ -73,8 +80,9 @@ form {
 }
 
 input {
-  border: 1px solid #0084FF;
+  border: none;
   border-radius: 8px;
+  caret-color: #0084FF;
   flex-grow: 1;
   font-size: 16px;
   padding: 5px;
@@ -85,6 +93,7 @@ button {
   border: none;
   border-radius: 8px;
   color: white;
+  cursor: pointer;
   font-size: 16px;
   margin-left: 10px;
   padding: 5px 10px;
