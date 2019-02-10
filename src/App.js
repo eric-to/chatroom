@@ -7,20 +7,12 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      messages: [
-        {
-          text: "Yoooo, dinner tonight?",
-          user: {
-            color: "blue",
-            username: "sadmoon"
-          }
-        }
-      ],
+      messages: [],
       user: {
         username: this.randomName(),
         color: this.randomColor()
       }
-    }
+    };
 
     this.drone = new window.Scaledrone("s0jxI1lyHoY1OTv6", {
       data: this.state.user
@@ -32,6 +24,13 @@ class App extends Component {
       const user = { ...this.state.user };
       user.id = this.drone.clientId;
       this.setState({ user })
+    });
+
+    const room = this.drone.subscribe("observable-room");
+    room.on('data', (data, user) => {
+      const messages = this.state.messages;
+      messages.push({ user, text: data });
+      this.setState({ messages })
     });
 
     this.onSendMessage = this.onSendMessage.bind(this);
@@ -50,12 +49,16 @@ class App extends Component {
   }
 
   onSendMessage(message) {
-    const messages = this.state.messages;
-    messages.push({
-      text: message,
-      user: this.state.user
-    });
-    this.setState({ messages: messages })
+    // const messages = this.state.messages;
+    // messages.push({
+    //   text: message,
+    //   user: this.state.user
+    // });
+    // this.setState({ messages: messages })
+    this.drone.publish({
+      room: "observable-room",
+      message
+    })
   }
 
   render() {
