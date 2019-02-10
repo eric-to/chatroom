@@ -6,6 +6,7 @@ import Messages from './Messages';
 class App extends Component {
   constructor() {
     super();
+
     this.state = {
       messages: [],
       user: {
@@ -17,6 +18,7 @@ class App extends Component {
     this.drone = new window.Scaledrone("s0jxI1lyHoY1OTv6", {
       data: this.state.user
     });
+
     this.drone.on('open', error => {
       if (error) {
         return console.error(error);
@@ -49,12 +51,6 @@ class App extends Component {
   }
 
   onSendMessage(message) {
-    // const messages = this.state.messages;
-    // messages.push({
-    //   text: message,
-    //   user: this.state.user
-    // });
-    // this.setState({ messages: messages })
     this.drone.publish({
       room: "observable-room",
       message

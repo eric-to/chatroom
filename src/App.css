@@ -1,4 +1,5 @@
 .App {
+  background-color: #292930;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -68,7 +69,7 @@
 }
 
 .my-message > .message-content .text {
-  background-color: orangered;
+  background-color: #0084FF;
 }
 
 form {
@@ -83,16 +84,20 @@ input {
   padding: 5px;
   font-size: 16px;
   border-radius: 8px;
-  border: 1px solid orangered;
+  border: 1px solid #0084FF;
   flex-grow: 1;
 }
 
 button {
   padding: 5px 10px;
   font-size: 16px;
-  background-color: orangered;
+  background-color: #0084FF;
   color: white;
   border: none;
   border-radius: 8px;
   margin-left: 10px;
+}
+
+button:focus, input:focus {
+  outline: none;
 }

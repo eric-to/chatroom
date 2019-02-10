@@ -2,20 +2,21 @@ import { Component } from "react";
 import React from "react";
 
 class Messages extends Component {
-  renderMessage(message) {
+  renderMessage(message, index) {
     const { user, text } = message;
     const { currentUser } = this.props;
     const myMessage = user.id === currentUser.id;
-    const messageClass = myMessage ? "message my-message" : "message";
+    const messageClass = myMessage ? "my-message message" : "message";
+
     return (
-      <li className={messageClass}>
+      <li className={ messageClass } key={ index }>
         <span
           className="avatar"
-          style={ {backgroundColor: user.color} }
+          style={ {backgroundColor: user.clientData.color} }
         />
         <div className="message-content">
           <div className="username">
-            {user.username}
+            { user.clientData.username }
           </div>
           <div className="text">{ text }</div>
         </div>
@@ -27,7 +28,7 @@ class Messages extends Component {
     const { messages } = this.props;
     return (
       <ul className="messages-list">
-        { messages.map(m => this.renderMessage(m)) }
+        { messages.map((m, index) => this.renderMessage(m, index)) }
       </ul>
     );
   }
