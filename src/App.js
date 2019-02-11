@@ -15,6 +15,8 @@ class App extends Component {
       }
     };
 
+    // Use Scaledrone to listen for messages and deliver them to
+    // multiple users
     this.drone = new window.Scaledrone("s0jxI1lyHoY1OTv6", {
       data: this.state.user
     });
@@ -23,7 +25,7 @@ class App extends Component {
       if (error) {
         return console.error(error);
       }
-      const user = { ...this.state.user };
+      const user = {...this.state.user};
       user.id = this.drone.clientId;
       this.setState({ user })
     });
@@ -35,6 +37,7 @@ class App extends Component {
       this.setState({ messages })
     });
 
+    // Bindings
     this.onSendMessage = this.onSendMessage.bind(this);
   }
 
@@ -47,6 +50,7 @@ class App extends Component {
   }
 
   randomColor() {
+    // Trendy colors in 2019
     const colors = ["#32064A", "#E56B1F", "#FCD02C", "#E42C6A", "#FDD935", "#3EB650", "#E12B38", "#F3E367", "#7DA2A9", "#4BFFA5", "#C19434", "#FB8122", "#D48166", "#5626C4", "#C60021", "#92A332", "#FB9985", "#63BCE5", "#C39EA0", "#F4ABAA", "#7D3780"];
     // return '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16);
     return colors[Math.floor(Math.random() * colors.length)];
