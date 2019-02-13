@@ -8,6 +8,7 @@ class App extends Component {
     super();
 
     this.state = {
+      sentimentScore: 0,
       messages: [],
       user: {
         username: this.randomName(),
