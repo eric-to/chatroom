@@ -4,6 +4,7 @@ import React from "react";
 class Input extends Component {
   constructor() {
     super();
+
     this.state = {
       text: ""
     }

@@ -5,10 +5,6 @@
   height: 100vh;
 }
 
-.chat-container {
-  height: 100%;
-}
-
 .messages-list {
   flex-grow: 1;
   list-style: none;
@@ -54,17 +50,23 @@
 }
 
 .message-content > .text {
-  background-color: cornflowerblue;
+  background-color: #F1F0F0;
   border-radius: 12px;
-  color: white;
+  color: #444950;
   display: inline-block;
   margin: 0;
   max-width: 400px;
-  padding: 10px;
+  padding: 7.5px;
 }
 
 .my-message > .message-content .text {
   background-color: #0084FF;
+  color: #FEFFFF;
+  text-align: left;
+}
+
+.message-form {
+  padding: 0 12px;
 }
 
 html, body {
@@ -82,7 +84,7 @@ form {
 input {
   border: none;
   border-radius: 8px;
-  caret-color: #0084FF;
+  caret-color: black;
   flex-grow: 1;
   font-size: 16px;
   padding: 5px;
